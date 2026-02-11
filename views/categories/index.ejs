@@ -1,0 +1,20 @@
+<h1>Category List</h1>
+
+<form method="GET">
+  <input type="text" name="q" value="<%= q || '' %>" placeholder="Search">
+  <button type="submit">Search</button>
+</form>
+
+<a href="/categories/create">+ Add Category</a>
+
+<ul>
+  <% categories.forEach(cat => { %>
+    <li>
+      <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
+      | <a href="/categories/<%= cat.id %>/edit">Edit</a>
+      <form action="/categories/<%= cat.id %>/delete" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
